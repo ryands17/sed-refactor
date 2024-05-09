@@ -21,3 +21,16 @@ rg -l Iter src | while read file; do sed -i 's/Iter<\(\w\+\)>/AsyncIter<\1>/g' "
 ```
 
 This shows that we can replace a type directly amongst all typescript files inside `src`.
+
+- There's also another way to do this via xargs:
+
+```sh
+rg -l Iter src | xargs sed -i 's/Iter<\(\w\+\)>/AsyncIter<\1>/g'
+```
+
+- To find patterns spanning across multiple lines, use this to convert the file into a single line:
+
+```sh
+fd --type f -e ts --full-path './src' | xargs sed -i -z 's|\n||g'
+```
+
