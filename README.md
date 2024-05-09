@@ -16,6 +16,12 @@ This project was created using `bun init` in bun v1.1.7. [Bun](https://bun.sh) i
 
 ### Commands to refactor (ripgrep and sed)
 
+- For a simple substitution
+
+```sh
+rg -l Iter src | while read file; do sed -i 's/Iter/AsyncIter/g' "$file"; done
+```
+
 ```sh
 rg -l Iter src | while read file; do sed -i 's/Iter<\(\w\+\)>/AsyncIter<\1>/g' "$file"; done
 ```
