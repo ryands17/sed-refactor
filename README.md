@@ -33,4 +33,3 @@ rg -l Iter src | xargs sed -i 's/Iter<\(\w\+\)>/AsyncIter<\1>/g'
 ```sh
 fd --type f -e ts --full-path './src' | xargs sed -i -z 's|\n||g'
 ```
-
